@@ -42,6 +42,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js" defer></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js" defer></script>
 
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/modernizr.js"></script>
     <script src="js/require.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/controllers/mainCon.js" defer></script>

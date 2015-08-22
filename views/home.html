@@ -4,18 +4,20 @@
             createSsidButton(SSID[i]);
         }
      }
+
     function createSsidButton(SSID) {
+
         temp = document.createElement("input");  
         temp.type = "button" ;       
         temp.id = SSID;
         temp.value = SSID;
-        buttonMain.appendChi6ld(temp); 
+        temp.className = "btn btn-default";
+        bgrounp.appendChild(temp); 
         temp.addEventListener("click", ssidButtonClick);
     }
+
     function ssidButtonClick() {
             
-    }
-    function progress() {
     }
 </script>
 
@@ -28,6 +30,7 @@
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
             }).fail( function( data ) {
+
             });
         });
      });
@@ -43,8 +46,8 @@
 			<button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="height:64px; padding:0px 64px; font-size:24px">
 			  開始掃描設備
 			</button>
-
-            <!-- <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div> -->
+            <br/>
+            <div id= "bgrounp" class="btn-group-vertical btn-group-lg" role="group" style="width: 100%;"></div>
         </div>
 
     </div>

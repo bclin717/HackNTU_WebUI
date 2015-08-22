@@ -9,8 +9,9 @@ app.config(function ($routeProvider) {
             controller: "settingCon"
         }).when("/about", {
             templateUrl: "views/about.html"
-        })
-        .otherwise({
+        }).when("/progress", {
+            templateUrl: "views/progress.html"
+        }).otherwise({
             redirectTo: "/"
         });
 });
