@@ -32,7 +32,6 @@
      $(document).ready(function() {
            $.get( "/cgi-bin/check.cgi", function( data ) {     
         $('#button_ajax').click( function() {
-            progress();
            $.get( "http://192.168.1.195/cgi-bin/check.cgi", function( data ) {  
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
