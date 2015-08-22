@@ -17,15 +17,33 @@
     }
 
     function ssidButtonClick() {
-            
+        $.ajax({
+            url: "/w.php",
+            data: $('#SSID').serialize(),
+            type:"POST",
+            dataType:'text',
+
+            success: function(msg){
+                alert(msg);
+            },
+
+            error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+
+
+
+        });        
     }
+
 </script>
 
 <script type="text/javascript">
      $(document).ready(function() {    
         $('#button_ajax').click( function() {
             window.location.href="#progress";
-            $.get( "http://192.168.1.195/cgi-bin/check.cgi", function( data ) {  
+            $.get( "http://192.168.1.136/cgi-bin/check.cgi", function( data ) {  
                 window.location.href="#/home/1";
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
