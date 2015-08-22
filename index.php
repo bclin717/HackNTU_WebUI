@@ -23,7 +23,7 @@
         <header class="demo-header mdl-layout__header mdl-color--header mdl-color-text--white">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">UI Test</span>
-            </div>1
+            </div>
         </header>
         <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-200 mdl-color-text--blue-grey-900" style="border: none;">
             <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-50">
