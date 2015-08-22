@@ -4,58 +4,48 @@
             createSsidButton(SSID[i]);
         }
      }
-
     function createSsidButton(SSID) {
         temp = document.createElement("input");  
         temp.type = "button" ;       
         temp.id = SSID;
         temp.value = SSID;
-        buttonMain.appendChild(temp); 
+        buttonMain.appendChi6ld(temp); 
         temp.addEventListener("click", ssidButtonClick);
     }
-
     function ssidButtonClick() {
-        
+            
     }
-
     function progress() {
-        var inputtpl = document.createElement("div");
-        inputtpl.setAttribute('className','mdl-progress mdl-js-progress mdl-progress__indeterminate');
-        inputtpl.setAttribute('id','hello');
-        buttonMain.appendChild(inputtpl);
     }
-
-
 </script>
 
 <script type="text/javascript">
-     $(document).ready(function() {
-           $.get( "/cgi-bin/check.cgi", function( data ) {     
+     $(document).ready(function() {    
         $('#button_ajax').click( function() {
-           $.get( "http://192.168.1.195/cgi-bin/check.cgi", function( data ) {  
+            window.location.href="#progress";
+            $.get( "http://192.168.1.195/cgi-bin/check.cgi", function( data ) {  
+                window.location.href="#/home/1";
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
             }).fail( function( data ) {
-
             });
-
         });
      });
 </script>
 
-<div class="row">
+<div>
     <a name = "Home"></a>
     <div class = "bg">
         <span><h1 class="title">主畫面</h1></span> 
     </div>
     <div id = "buttonMain" class="mdl-grid demo-content">
-		<div class="col-md-2"></div>
-   		<div class="col-md-8">
-            <button id = "button_ajax" class="btn btn-default btn-lg">
-		-	  開始掃描設備
+        <div>
+            <button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			  開始掃描設備
 			</button>
+
             <!-- <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div> -->
         </div>
-		 <div class="col-md-2"></div>
+
     </div>
 </div>
