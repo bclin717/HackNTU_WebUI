@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    function newButton(SSID, length) {
+        for(i = 0; i < length; i++) {
+            createSsidButton(SSID[i]);
+        }
+     }
+
+    function createSsidButton(SSID) {
+        temp = document.createElement("input");  
+        temp.type = "button" ;       
+        temp.id = SSID;
+        temp.value = SSID;
+        buttonMain.appendChild(temp); 
+        temp.addEventListener("click", ssidButtonClick);
+    }
+
+    function ssidButtonClick() {
+        
+    }
+
+</script>
+
+<script type="text/javascript">
+     $(document).ready(function() {
+        $('#button_ajax').click(function() {
+           $.get( "/cgi-bin/check.cgi", function( data ) {     
+                var STR = JSON.parse(data);
+                newButton(STR, STR.length);
+            }).fail( function( data ) {
+            
+            });
+        });
+     });
+</script>
+
+<div>
+    <a name = "Home"></a>
+    <div class = "bg">
+        <span><h1 class="title">主畫面</h1></span> 
+    </div>
+    <div id = "buttonMain" class="mdl-grid demo-content">
+        <div>
+            <button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  onclick = "get()">
+			  開始掃描設備
+			</button>
+        </div>
+    </div>
+</div>
