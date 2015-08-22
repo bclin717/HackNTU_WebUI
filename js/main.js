@@ -11,6 +11,8 @@ app.config(function ($routeProvider) {
             templateUrl: "views/about.html"
         }).when("/progress", {
             templateUrl: "views/progress.html"
+        }).when("/first", {
+            templateUrl: "views/firstHome.html"
         }).otherwise({
             redirectTo: "/"
         });

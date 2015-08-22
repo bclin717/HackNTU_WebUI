@@ -1,17 +1,4 @@
 <script type="text/javascript">
-     $(document).ready(function() {
-        $.get("http://192.168.1.136/cgi-bin/firstcheck.cgi", function(data) {
-            if(data == "False\n") {
-                window.location.href="#first";
-            } else if (data == "True\n") {
-
-            }
-        });
-     });
-</script>
-
-
-<script type="text/javascript">
     function newButton(SSID, length) {
         for(i = 0; i < length; i++) {
             createSsidButton(SSID[i]);
@@ -30,36 +17,29 @@
     }
 
     function ssidButtonClick() {
-        window.location.href="#progress";
-
         $.ajax({
-            url: "views/normalWrite.php",
+            url: "views/firstWrite.php",
             data: { Text : this.value},
             type:"POST",
             dataType:'text',
-        });     
-        
+        });
 
-        $.get("http://192.168.1.136/cgi-bin/decry.cgi", function( data ) {
-            window.location.href="#/home/1";
-            var STR = JSON.parse(data);
-            if(STR == "True\n") {
-                alert("連線成功");
-            } else {
-                alert("連線失敗");
-            }
-        }).fail( function(data) {
-            alert("failer");
-        });   
+        $.ajax({
+            url: "views/firstPassword.php",
+            data: { Text : passwordInput.value},
+            type:"POST",
+            dataType:'text',
+        });
     }
+
 </script>
 
 <script type="text/javascript">
      $(document).ready(function() {    
         $('#button_ajax').click( function() {
             window.location.href="#progress";
-            $.get( "http://192.168.1.136/cgi-bin/check.cgi", function( data ) {  
-                window.location.href="#/home/1";
+            $.get( "http://192.168.1.136/cgi-bin/first.cgi", function( data ) {  
+                window.location.href="#first";
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
             }).fail( function( data ) {
@@ -72,8 +52,16 @@
 <div>
     <a name = "Home"></a>
     <div class = "bg">
-        <span><h1 class="title">主畫面</h1></span> 
+        <span><h1 class="title">首次使用</h1></span> 
     </div>
+
+    <form action="#">
+          <div class="mdl-textfield mdl-js-textfield" style="margin-left: 41.5%;">
+            <input class="mdl-textfield__input" type="password" id="passwordInput" />
+            <label class="mdl-textfield__label" for="passwordInput">請輸入密碼</label>
+          </div>
+    </form>
+
     <div id = "buttonMain" class="mdl-grid demo-content" style="margin-left:42%;">
         <div>
 			<button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="height:64px; padding:0px 64px; font-size:24px">
