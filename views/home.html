@@ -18,17 +18,28 @@
         
     }
 
+    function progress() {
+        var inputtpl = document.createElement("div");
+        inputtpl.setAttribute('className','mdl-progress mdl-js-progress mdl-progress__indeterminate');
+        inputtpl.setAttribute('id','hello');
+        buttonMain.appendChild(inputtpl);
+    }
+
+
 </script>
 
 <script type="text/javascript">
      $(document).ready(function() {
-        $('#button_ajax').click(function() {
            $.get( "/cgi-bin/check.cgi", function( data ) {     
+        $('#button_ajax').click( function() {
+            progress();
+           $.get( "http://192.168.1.195/cgi-bin/check.cgi", function( data ) {  
                 var STR = JSON.parse(data);
                 newButton(STR, STR.length);
             }).fail( function( data ) {
-            
+
             });
+
         });
      });
 </script>
@@ -40,9 +51,11 @@
     </div>
     <div id = "buttonMain" class="mdl-grid demo-content">
         <div>
-            <button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"  onclick = "get()">
+            <button id = "button_ajax" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 			  開始掃描設備
 			</button>
+            <!-- <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div> -->
         </div>
+
     </div>
 </div>
