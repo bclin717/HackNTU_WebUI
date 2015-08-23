@@ -50,13 +50,15 @@
      $(document).ready(function() {    
         $('#button_ajax').click( function() {
             window.location.href="#progress";
-            $.get( "http://192.168.1.136/cgi-bin/check.cgi", function( data ) {  
-                window.location.href="#/home/1";
-                var STR = JSON.parse(data);
-                newButton(STR, STR.length);
-            }).fail( function( data ) {
+            $.get("", function( data) {
+                $.get( "http://192.168.1.136/cgi-bin/check.cgi", function( data ) {  
+                    window.location.href="#/home/1";
+                    var STR = JSON.parse(data);
+                    newButton(STR, STR.length);
+                }).fail( function( data ) {
+                });
 
-            });
+            })   
         });
      });
 </script>
