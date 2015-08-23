@@ -40,17 +40,9 @@
         });     
         
 
-        $.get("http://192.168.1.136/cgi-bin/decry.cgi", function( data ) {
-            window.location.href="#/home/1";
-            var STR = JSON.parse(data);
-            if(STR == "True\n") {
-                alert("連線成功");
-            } else {
-                alert("連線失敗");
-            }
-        }).fail( function(data) {
-            alert("failer");
-        });   
+        $.get("http://192.168.1.136/cgi-bin/decry.cgi");
+        window.location.href="#/home/1";
+        // $.get("http://192.168.1.136/cgi-bin/socket.cgi");
     }
 </script>
 

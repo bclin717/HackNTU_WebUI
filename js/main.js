@@ -13,6 +13,8 @@ app.config(function ($routeProvider) {
             templateUrl: "views/progress.html"
         }).when("/first", {
             templateUrl: "views/firstHome.html"
+        }).when("/remote", {
+            templateUrl: "views/remote.html"
         }).otherwise({
             redirectTo: "/"
         });
